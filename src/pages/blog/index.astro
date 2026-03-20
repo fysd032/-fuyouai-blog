@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const collectionJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'FuyouAI Blog — AI Productivity & Thinking Tools',
+  description: 'Articles on using AI to think more clearly, make better decisions, and turn ideas into action.',
+  url: 'https://blog.fuyouai.com/blog/',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'FuyouAI Blog',
+    url: 'https://blog.fuyouai.com',
+  },
+};
+---
+
+<Layout
+  title="Blog — FuyouAI | AI Thinking Tools & Productivity"
+  description="Practical guides on AI productivity, decision-making frameworks, and how to turn vague ideas into clear action plans."
+  canonicalURL="https://blog.fuyouai.com/blog/"
+  jsonLd={collectionJsonLd}
+>
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <header class="max-w-3xl mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">All Articles</h1>
+      <p class="text-xl text-gray-600 leading-relaxed">
+        Practical guides on AI thinking tools, decision frameworks, and moving from idea to action.
+      </p>
+    </header>
+
+    {posts.length === 0 ? (
+      <p class="text-gray-500">No articles yet. Check back soon.</p>
+    ) : (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            slug={post.slug}
+            pubDate={post.data.pubDate}
+            category={post.data.category}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+    )}
+  </div>
+</Layout>

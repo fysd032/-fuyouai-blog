@@ -1,0 +1,157 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTA from '../../components/CTA.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Related posts: same category, exclude current
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const relatedPosts = allPosts
+  .filter((p) => p.slug !== post.slug && p.data.category === post.data.category)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const { title, description, pubDate, author, category, tags, canonicalURL, ogImage } = post.data;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const blogPostingJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description: description,
+  image: `https://blog.fuyouai.com${ogImage}`,
+  datePublished: pubDate.toISOString(),
+  dateModified: pubDate.toISOString(),
+  author: {
+    '@type': 'Organization',
+    name: author,
+    url: 'https://fuyouai.com',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'FuyouAI',
+    url: 'https://fuyouai.com',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://blog.fuyouai.com/og/default-blog.jpg',
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalURL,
+  },
+  keywords: tags?.join(', '),
+};
+---
+
+<Layout
+  title={`${title} — FuyouAI Blog`}
+  description={description}
+  canonicalURL={canonicalURL}
+  ogImage={ogImage}
+  ogType="article"
+  article={{
+    publishedTime: pubDate.toISOString(),
+    author: author,
+    tags: tags,
+  }}
+  jsonLd={blogPostingJsonLd}
+>
+  <article class="max-w-3xl mx-auto px-4 py-16">
+    <!-- Meta -->
+    <header class="mb-10">
+      <div class="flex items-center gap-3 mb-4 text-sm text-gray-500">
+        <a href="/blog/" class="text-brand-600 hover:text-brand-700 font-medium">← Blog</a>
+        <span>·</span>
+        {category && (
+          <span class="text-brand-600 bg-brand-50 px-2.5 py-0.5 rounded-full font-medium">{category}</span>
+        )}
+        <span>·</span>
+        <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+      </div>
+
+      <h1 class="text-4xl font-bold text-gray-900 leading-tight mb-4">{title}</h1>
+      <p class="text-xl text-gray-500 leading-relaxed">{description}</p>
+
+      {tags && tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mt-6">
+          {tags.map((tag) => (
+            <span class="text-xs text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full">#{tag}</span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <!-- Content -->
+    <div class="prose prose-gray max-w-none
+      prose-headings:font-bold prose-headings:text-gray-900
+      prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+      prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+      prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-5
+      prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline
+      prose-ul:text-gray-600 prose-ol:text-gray-600
+      prose-li:mb-1
+      prose-strong:text-gray-800
+      prose-blockquote:border-brand-300 prose-blockquote:text-gray-600
+      prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:text-gray-800 prose-code:font-normal
+    ">
+      <Content />
+    </div>
+
+    <!-- CTA inside article -->
+    <CTA
+      heading="Put this into practice with FuyouAI"
+      subtext="FuyouAI helps you apply structured thinking to your real decisions and plans — not just read about it."
+      buttonText="Try FuyouAI for free →"
+      variant="default"
+    />
+
+    <!-- Author -->
+    <div class="mt-10 pt-8 border-t border-gray-100 flex items-center gap-4">
+      <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-bold text-sm">
+        F
+      </div>
+      <div>
+        <p class="text-sm font-semibold text-gray-800">{author}</p>
+        <p class="text-xs text-gray-500">Published on {formattedDate}</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Posts -->
+  {relatedPosts.length > 0 && (
+    <section class="border-t border-gray-100 py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">Related Articles</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {relatedPosts.map((related) => (
+            <BlogCard
+              title={related.data.title}
+              description={related.data.description}
+              slug={related.slug}
+              pubDate={related.data.pubDate}
+              category={related.data.category}
+              tags={related.data.tags}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</Layout>

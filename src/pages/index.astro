@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BlogCard from '../components/BlogCard.astro';
+import CTA from '../components/CTA.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const featuredPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 4);
+
+const siteURL = 'https://blog.fuyouai.com';
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'FuyouAI Blog',
+  url: siteURL,
+  description: 'Practical guides on using AI to think more clearly and turn ideas into action.',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${siteURL}/blog/?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'FuyouAI',
+  url: 'https://fuyouai.com',
+  logo: `${siteURL}/og/default-blog.jpg`,
+  sameAs: ['https://fuyouai.com'],
+};
+
+const useCases = [
+  {
+    icon: '💡',
+    title: 'Stuck on a product decision?',
+    desc: 'Paste your dilemma into FuyouAI. It structures your options, surfaces trade-offs, and gives you a framework to decide — not just another AI answer.',
+  },
+  {
+    icon: '📋',
+    title: 'Have an idea, no plan?',
+    desc: 'Describe your goal in plain language. FuyouAI breaks it into concrete steps, flags the unknowns, and maps a path from concept to execution.',
+  },
+  {
+    icon: '🔍',
+    title: 'Need to prioritize, fast?',
+    desc: 'List your tasks or features. FuyouAI applies structured thinking to help you focus on what matters most given your constraints.',
+  },
+  {
+    icon: '✍️',
+    title: 'Writing content but running in circles?',
+    desc: 'Give FuyouAI your topic and audience. It outlines a clear argument, structures your narrative, and cuts the guesswork.',
+  },
+];
+---
+
+<Layout
+  title="FuyouAI Blog — AI Thinking Tools for Entrepreneurs & Product Teams"
+  description="Practical guides on using AI to think more clearly, make better decisions, and turn vague ideas into structured action plans."
+  canonicalURL="https://blog.fuyouai.com/"
+  jsonLd={[websiteJsonLd, orgJsonLd]}
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-brand-50 to-white py-20 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <span class="inline-block text-sm font-medium text-brand-600 bg-brand-100 px-3 py-1 rounded-full mb-4">
+        AI Productivity for Serious Thinkers
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6">
+        Turn vague ideas into<br />
+        <span class="text-brand-600">clear action plans</span>
+      </h1>
+      <p class="text-xl text-gray-600 leading-relaxed mb-8 max-w-2xl mx-auto">
+        The FuyouAI Blog covers practical strategies for using AI to think more clearly, decide faster, and move from idea to execution with structure.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a
+          href="/blog/"
+          class="px-8 py-3 bg-brand-600 text-white font-semibold rounded-lg hover:bg-brand-700 transition-colors shadow-sm"
+        >
+          Read the Blog
+        </a>
+        <a
+          href="https://fuyouai.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-8 py-3 border border-brand-200 text-brand-700 font-semibold rounded-lg hover:bg-brand-50 transition-colors"
+        >
+          Try FuyouAI Free →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is FuyouAI -->
+  <section class="py-16 px-4 border-b border-gray-100">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">What is FuyouAI?</h2>
+      <p class="text-gray-600 text-lg leading-relaxed mb-4">
+        FuyouAI is an AI thinking tool built for people who need more than answers — they need structure. When you're facing a complex decision, a half-formed product idea, or a priority list that won't stop growing, generic chatbots fall short.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        FuyouAI is designed to take your messy, incomplete thoughts and return a structured plan you can actually act on. No jargon, no filler — just clarity.
+      </p>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="py-16 px-4 border-b border-gray-100">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Who this blog is for</h2>
+      <p class="text-gray-500 mb-8">If one of these describes you, you're in the right place.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          { label: 'Startup founders', desc: 'juggling strategy, product, and execution daily' },
+          { label: 'Product managers', desc: 'making trade-off decisions under real constraints' },
+          { label: 'Indie developers', desc: 'building products with limited time and resources' },
+          { label: 'Content creators', desc: 'trying to produce structured, high-quality work at scale' },
+        ].map(({ label, desc }) => (
+          <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+            <span class="text-brand-500 font-bold mt-0.5">✓</span>
+            <div>
+              <span class="font-semibold text-gray-800">{label}</span>
+              <span class="text-gray-500 text-sm"> — {desc}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="py-16 px-4 border-b border-gray-100">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Real scenarios FuyouAI solves</h2>
+      <p class="text-gray-500 mb-8">Concrete situations where structured AI thinking makes a measurable difference.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {useCases.map(({ icon, title, desc }) => (
+          <div class="p-5 border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+            <span class="text-2xl mb-3 block">{icon}</span>
+            <h3 class="font-semibold text-gray-800 mb-2">{title}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why FuyouAI vs chat AI -->
+  <section class="py-16 px-4 border-b border-gray-100">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Why not just use ChatGPT?</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="text-left p-3 border border-gray-200 font-semibold text-gray-700"></th>
+              <th class="text-left p-3 border border-gray-200 font-semibold text-gray-700">Generic Chat AI</th>
+              <th class="text-left p-3 border border-gray-200 font-semibold text-brand-600">FuyouAI</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Handles vague inputs', '⚠️ Returns vague outputs', '✓ Structures the input first'],
+              ['Decision support', '❌ Gives answers, not frameworks', '✓ Maps options and trade-offs'],
+              ['Action planning', '⚠️ General advice', '✓ Concrete, sequenced steps'],
+              ['Built for thinking', '❌ Built for conversation', '✓ Built for thinking and deciding'],
+            ].map(([feature, generic, fuyou]) => (
+              <tr class="even:bg-gray-50">
+                <td class="p-3 border border-gray-200 font-medium text-gray-700">{feature}</td>
+                <td class="p-3 border border-gray-200 text-gray-500">{generic}</td>
+                <td class="p-3 border border-gray-200 text-brand-700 font-medium">{fuyou}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Posts -->
+  {featuredPosts.length > 0 && (
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-2xl font-bold text-gray-900">Featured Articles</h2>
+          <a href="/blog/" class="text-sm font-medium text-brand-600 hover:text-brand-700 transition-colors">
+            View all →
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {featuredPosts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              slug={post.slug}
+              pubDate={post.data.pubDate}
+              category={post.data.category}
+              tags={post.data.tags}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Main CTA -->
+  <section class="px-4 pb-16">
+    <div class="max-w-3xl mx-auto">
+      <CTA
+        heading="Stop guessing. Start deciding with clarity."
+        subtext="FuyouAI gives you a structured thinking partner — not just an AI that talks back. Try it free, no setup required."
+        buttonText="Get started at FuyouAI →"
+        variant="banner"
+      />
+    </div>
+  </section>
+</Layout>

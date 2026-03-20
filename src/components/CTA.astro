@@ -1,0 +1,59 @@
+---
+export interface Props {
+  heading?: string;
+  subtext?: string;
+  buttonText?: string;
+  variant?: 'default' | 'minimal' | 'banner';
+}
+
+const {
+  heading = 'Ready to think more clearly?',
+  subtext = 'FuyouAI turns your scattered thoughts into structured action plans. No fluff, just clarity.',
+  buttonText = 'Start for free at FuyouAI →',
+  variant = 'default',
+} = Astro.props;
+---
+
+{variant === 'default' && (
+  <div class="my-12 rounded-2xl bg-gradient-to-br from-brand-50 to-blue-50 border border-brand-100 p-8 text-center">
+    <h2 class="text-2xl font-bold text-gray-900 mb-3">{heading}</h2>
+    <p class="text-gray-600 mb-6 max-w-xl mx-auto">{subtext}</p>
+    <a
+      href="https://fuyouai.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-block px-8 py-3 bg-brand-600 text-white font-semibold rounded-lg hover:bg-brand-700 transition-colors shadow-sm"
+    >
+      {buttonText}
+    </a>
+  </div>
+)}
+
+{variant === 'minimal' && (
+  <div class="my-8 p-6 border-l-4 border-brand-500 bg-brand-50 rounded-r-lg">
+    <p class="text-gray-800 font-medium mb-3">{heading}</p>
+    <a
+      href="https://fuyouai.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-brand-600 font-semibold hover:text-brand-700 transition-colors"
+    >
+      {buttonText}
+    </a>
+  </div>
+)}
+
+{variant === 'banner' && (
+  <div class="my-10 rounded-xl bg-brand-600 p-8 text-center text-white">
+    <h2 class="text-2xl font-bold mb-2">{heading}</h2>
+    <p class="text-brand-100 mb-5">{subtext}</p>
+    <a
+      href="https://fuyouai.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-block px-8 py-3 bg-white text-brand-700 font-semibold rounded-lg hover:bg-brand-50 transition-colors"
+    >
+      {buttonText}
+    </a>
+  </div>
+)}

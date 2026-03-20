@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<Layout
+  title="About FuyouAI Blog — Why We Write About AI Thinking Tools"
+  description="The FuyouAI Blog exists to help entrepreneurs, product managers, and builders use AI to think more clearly and make better decisions."
+  canonicalURL="https://blog.fuyouai.com/about/"
+>
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <!-- Header -->
+    <header class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">About This Blog</h1>
+      <p class="text-xl text-gray-600 leading-relaxed">
+        We write for people who think for a living — and want AI to make that thinking sharper, not noisier.
+      </p>
+    </header>
+
+    <!-- Why this blog -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Why we built this</h2>
+      <p class="text-gray-600 leading-relaxed mb-4">
+        Most AI content either oversells the technology or teaches you to prompt-hack your way to mediocre outputs. Neither is useful when you're trying to make a real product decision, plan a launch, or figure out whether your idea is worth pursuing.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-4">
+        The FuyouAI Blog exists because the most valuable use of AI isn't generating content — it's improving how you think. When you have a structured thinking partner, decisions get easier. Plans become actionable. Ideas stop circling and start moving.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        Every article here is written around one question: <em>what does AI actually help you do better, and how?</em>
+      </p>
+    </section>
+
+    <!-- Who this is for -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Who reads this blog</h2>
+      <ul class="space-y-4">
+        {[
+          { role: 'Startup founders', detail: 'Making daily decisions under uncertainty, with limited time and high stakes.' },
+          { role: 'Product managers', detail: 'Balancing stakeholder demands, technical constraints, and user needs — all at once.' },
+          { role: 'Indie developers', detail: 'Building and shipping products without a team, where focus and structure are survival skills.' },
+          { role: 'Content creators', detail: 'Producing consistent, quality work without burning out or losing your voice.' },
+          { role: 'AI SaaS users', detail: 'Already using AI tools but looking for more structured, higher-leverage approaches.' },
+        ].map(({ role, detail }) => (
+          <li class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+            <span class="text-brand-500 font-bold mt-0.5">→</span>
+            <div>
+              <span class="font-semibold text-gray-800">{role}:</span>
+              <span class="text-gray-600 text-sm ml-1">{detail}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- What we cover -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">What we cover</h2>
+      <p class="text-gray-600 leading-relaxed mb-4">
+        Our articles focus on three core topics:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {[
+          { title: 'AI thinking tools', desc: 'How to use AI to structure your thinking, not just speed it up.' },
+          { title: 'Decision-making', desc: 'Frameworks and practical approaches for better decisions under pressure.' },
+          { title: 'Idea to action', desc: 'Moving from a rough concept to a concrete, executable plan.' },
+        ].map(({ title, desc }) => (
+          <div class="p-4 border border-gray-100 rounded-xl">
+            <h3 class="font-semibold text-gray-800 mb-1">{title}</h3>
+            <p class="text-sm text-gray-500">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- About FuyouAI product -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">About FuyouAI</h2>
+      <p class="text-gray-600 leading-relaxed mb-4">
+        FuyouAI is an AI-powered thinking tool that helps you turn vague ideas into structured action plans. It's built for people who need to move fast without losing clarity.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        Unlike general-purpose chat AI, FuyouAI is designed specifically for structured thinking: decision analysis, idea validation, planning, and prioritization. It meets you where your thinking is and helps you take it further.
+      </p>
+    </section>
+
+    <CTA
+      heading="See FuyouAI in action"
+      subtext="Try structuring your next idea or decision with FuyouAI — free, no credit card required."
+      buttonText="Visit FuyouAI →"
+      variant="default"
+    />
+  </div>
+</Layout>
