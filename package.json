@@ -2,9 +2,10 @@
   "name": "fuyouai-blog",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/fix-sitemap.js",
     "preview": "astro preview",
     "astro": "astro"
   },
