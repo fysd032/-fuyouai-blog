@@ -6,7 +6,7 @@ author: "FuyouAI"
 category: "AI Productivity"
 tags: ["product development", "AI tools", "startup", "idea validation"]
 targetKeyword: "from idea to product with AI"
-canonicalURL: "https://blog.fuyouai.com/blog/from-idea-to-product-how-ai-helps-you-think-clearly/"
+canonicalURL: "https://fuyouai.com/blog/from-idea-to-product-how-ai-helps-you-think-clearly/"
 draft: false
 ogImage: "/og/default-blog.jpg"
 ---

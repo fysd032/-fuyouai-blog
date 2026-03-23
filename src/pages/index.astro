@@ -5,17 +5,16 @@ import CTA from '../components/CTA.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
-const featuredPosts = allPosts
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 4);
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const featuredPosts = posts.slice(0, 4);
 
-const siteURL = 'https://blog.fuyouai.com';
+const siteURL = 'https://fuyouai.com';
 
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'FuyouAI Blog',
-  url: siteURL,
+  url: `${siteURL}/blog`,
   description: 'Practical guides on using AI to think more clearly and turn ideas into action.',
   potentialAction: {
     '@type': 'SearchAction',
@@ -28,9 +27,9 @@ const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'FuyouAI',
-  url: 'https://fuyouai.com',
-  logo: `${siteURL}/og/default-blog.jpg`,
-  sameAs: ['https://fuyouai.com'],
+  url: siteURL,
+  logo: `${siteURL}/blog/og/default-blog.jpg`,
+  sameAs: [siteURL],
 };
 
 const useCases = [
@@ -60,7 +59,7 @@ const useCases = [
 <Layout
   title="FuyouAI Blog — AI Thinking Tools for Entrepreneurs & Product Teams"
   description="Practical guides on using AI to think more clearly, make better decisions, and turn vague ideas into structured action plans."
-  canonicalURL="https://blog.fuyouai.com/"
+  canonicalURL="https://fuyouai.com/blog/"
   jsonLd={[websiteJsonLd, orgJsonLd]}
 >
   <!-- Hero -->
@@ -78,10 +77,10 @@ const useCases = [
       </p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
         <a
-          href="/blog/"
+          href="#articles"
           class="px-8 py-3 bg-brand-600 text-white font-semibold rounded-lg hover:bg-brand-700 transition-colors shadow-sm"
         >
-          Read the Blog
+          Read Articles
         </a>
         <a
           href="https://fuyouai.com"
@@ -181,18 +180,18 @@ const useCases = [
     </div>
   </section>
 
-  <!-- Featured Posts -->
-  {featuredPosts.length > 0 && (
-    <section class="py-16 px-4">
-      <div class="max-w-6xl mx-auto">
-        <div class="flex items-center justify-between mb-8">
-          <h2 class="text-2xl font-bold text-gray-900">Featured Articles</h2>
-          <a href="/blog/" class="text-sm font-medium text-brand-600 hover:text-brand-700 transition-colors">
-            View all →
-          </a>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {featuredPosts.map((post) => (
+  <!-- All Articles -->
+  <section id="articles" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-bold text-gray-900">All Articles</h2>
+        <p class="text-sm text-gray-500">{posts.length} articles</p>
+      </div>
+      {posts.length === 0 ? (
+        <p class="text-gray-500">No articles yet. Check back soon.</p>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.map((post) => (
             <BlogCard
               title={post.data.title}
               description={post.data.description}
@@ -203,9 +202,9 @@ const useCases = [
             />
           ))}
         </div>
-      </div>
-    </section>
-  )}
+      )}
+    </div>
+  </section>
 
   <!-- Main CTA -->
   <section class="px-4 pb-16">

@@ -3,7 +3,8 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://blog.fuyouai.com',
+  site: 'https://fuyouai.com',
+  base: '/blog',
   integrations: [
     tailwind(),
     sitemap(),

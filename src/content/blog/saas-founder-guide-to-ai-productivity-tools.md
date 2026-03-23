@@ -6,7 +6,7 @@ author: "FuyouAI"
 category: "AI Productivity"
 tags: ["SaaS", "founder", "AI tools", "productivity", "startup"]
 targetKeyword: "AI productivity tools SaaS founders"
-canonicalURL: "https://blog.fuyouai.com/blog/saas-founder-guide-to-ai-productivity-tools/"
+canonicalURL: "https://fuyouai.com/blog/saas-founder-guide-to-ai-productivity-tools/"
 draft: false
 ogImage: "/og/default-blog.jpg"
 ---

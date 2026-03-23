@@ -1,8 +1,7 @@
 ---
 const navLinks = [
-  { href: '/', label: 'Home' },
   { href: '/blog/', label: 'Blog' },
-  { href: '/about/', label: 'About' },
+  { href: '/blog/about/', label: 'About' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -12,7 +11,7 @@ const currentPath = Astro.url.pathname;
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 font-semibold text-gray-900 hover:text-brand-600 transition-colors">
+      <a href="/blog/" class="flex items-center gap-2 font-semibold text-gray-900 hover:text-brand-600 transition-colors">
         <span class="text-brand-600 font-bold text-xl" translate="no">FuyouAI</span>
         <span class="text-gray-400 font-normal text-sm hidden sm:inline">Blog</span>
       </a>

@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://blog.fuyouai.com/sitemap-index.xml
+Sitemap: https://fuyouai.com/blog/sitemap-index.xml

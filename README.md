@@ -2,7 +2,7 @@
 
 English SEO blog for [FuyouAI](https://fuyouai.com) — practical guides on using AI to think more clearly, make better decisions, and turn vague ideas into structured action plans.
 
-**Live site:** `blog.fuyouai.com`
+**Live site:** `fuyouai.com/blog`
 
 ---
 
@@ -12,7 +12,7 @@ English SEO blog for [FuyouAI](https://fuyouai.com) — practical guides on usin
 - **Styles:** Tailwind CSS + `@tailwindcss/typography`
 - **Content:** Astro Content Collections (Markdown)
 - **Plugins:** `@astrojs/sitemap`, `@astrojs/tailwind`, `@astrojs/rss`
-- **Deployment:** Vercel
+- **Deployment:** Vercel (deployed as subdirectory `/blog` of main site)
 
 ---
 
@@ -30,7 +30,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:4321](http://localhost:4321) in your browser.
+Open [http://localhost:4321/blog/](http://localhost:4321/blog/) in your browser.
 
 ### Build for production
 
@@ -38,7 +38,7 @@ Open [http://localhost:4321](http://localhost:4321) in your browser.
 npm run build
 ```
 
-Output goes to `dist/`. Preview the production build locally:
+Output goes to `dist/blog/`. Preview the production build locally:
 
 ```bash
 npm run preview
@@ -51,9 +51,9 @@ npm run preview
 1. Push the `seo-site/` directory to a GitHub repository
 2. Import the repository in [Vercel](https://vercel.com)
 3. Vercel auto-detects Astro — no config changes needed (`vercel.json` is already included)
-4. Set the production domain to `blog.fuyouai.com` in Vercel project settings
+4. Configure the domain `fuyouai.com` and ensure the `/blog` path routes to this deployment
 
-The `vercel.json` is already configured with the correct build command, output directory, and framework.
+The blog uses `base: '/blog'` in `astro.config.mjs`, so all pages are generated under the `/blog/` path prefix.
 
 ---
 
@@ -63,15 +63,13 @@ The `vercel.json` is already configured with the correct build command, output d
 seo-site/
 ├── src/
 │   ├── pages/
-│   │   ├── index.astro          # Homepage
-│   │   ├── about.astro          # About page
-│   │   ├── blog/
-│   │   │   ├── index.astro      # Blog listing
-│   │   │   └── [slug].astro     # Article detail (dynamic)
-│   │   └── rss.xml.js           # RSS feed
+│   │   ├── index.astro          # Blog homepage (landing + article list)
+│   │   ├── about.astro          # About page (/blog/about/)
+│   │   ├── [slug].astro         # Article detail (/blog/[slug]/)
+│   │   └── rss.xml.js           # RSS feed (/blog/rss.xml)
 │   ├── content/
 │   │   ├── config.ts            # Collection schema
-│   │   └── blog/                # Markdown articles (10 articles)
+│   │   └── blog/                # Markdown articles (11 articles)
 │   ├── layouts/
 │   │   └── Layout.astro         # Base layout with SEO meta
 │   └── components/
@@ -107,7 +105,7 @@ author: "FuyouAI"
 category: "AI Productivity"
 tags: ["tag1", "tag2", "tag3"]
 targetKeyword: "primary search keyword"
-canonicalURL: "https://blog.fuyouai.com/blog/your-article-slug/"
+canonicalURL: "https://fuyouai.com/blog/your-article-slug/"
 draft: false
 ogImage: "/og/default-blog.jpg"
 ---
@@ -136,9 +134,10 @@ The article will automatically appear on the blog listing page and in the sitema
 
 ## SEO Configuration
 
-- **Site URL:** Set in `astro.config.mjs` → `site: 'https://blog.fuyouai.com'`
-- **Sitemap:** Auto-generated at `/sitemap-index.xml` by `@astrojs/sitemap`
-- **RSS:** Available at `/rss.xml`
+- **Site URL:** Set in `astro.config.mjs` → `site: 'https://fuyouai.com'`
+- **Base path:** Set in `astro.config.mjs` → `base: '/blog'`
+- **Sitemap:** Auto-generated at `/blog/sitemap-index.xml` by `@astrojs/sitemap`
+- **RSS:** Available at `/blog/rss.xml`
 - **robots.txt:** Located at `public/robots.txt`
 - **Canonical URLs:** Set per-page via frontmatter `canonicalURL` field
 - **JSON-LD:** Homepage uses `WebSite` + `Organization`; articles use `BlogPosting`

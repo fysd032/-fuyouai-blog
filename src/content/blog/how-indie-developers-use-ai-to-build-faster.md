@@ -6,7 +6,7 @@ author: "FuyouAI"
 category: "AI Productivity"
 tags: ["indie dev", "AI tools", "productivity", "solo founder"]
 targetKeyword: "how indie developers use AI"
-canonicalURL: "https://blog.fuyouai.com/blog/how-indie-developers-use-ai-to-build-faster/"
+canonicalURL: "https://fuyouai.com/blog/how-indie-developers-use-ai-to-build-faster/"
 draft: false
 ogImage: "/og/default-blog.jpg"
 ---

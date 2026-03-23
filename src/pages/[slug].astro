@@ -1,7 +1,7 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import CTA from '../../components/CTA.astro';
-import BlogCard from '../../components/BlogCard.astro';
+import Layout from '../layouts/Layout.astro';
+import CTA from '../components/CTA.astro';
+import BlogCard from '../components/BlogCard.astro';
 import { getCollection, getEntry } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -35,7 +35,7 @@ const blogPostingJsonLd = {
   '@type': 'BlogPosting',
   headline: title,
   description: description,
-  image: `https://blog.fuyouai.com${ogImage}`,
+  image: `https://fuyouai.com/blog${ogImage}`,
   datePublished: pubDate.toISOString(),
   dateModified: pubDate.toISOString(),
   author: {
@@ -49,7 +49,7 @@ const blogPostingJsonLd = {
     url: 'https://fuyouai.com',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://blog.fuyouai.com/og/default-blog.jpg',
+      url: 'https://fuyouai.com/blog/og/default-blog.jpg',
     },
   },
   mainEntityOfPage: {

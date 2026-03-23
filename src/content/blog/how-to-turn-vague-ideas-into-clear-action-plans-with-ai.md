@@ -6,7 +6,7 @@ author: "FuyouAI"
 category: "AI Productivity"
 tags: ["action planning", "AI tools", "productivity", "decision-making"]
 targetKeyword: "turn vague ideas into clear action plans with AI"
-canonicalURL: "https://blog.fuyouai.com/blog/how-to-turn-vague-ideas-into-clear-action-plans-with-ai/"
+canonicalURL: "https://fuyouai.com/blog/how-to-turn-vague-ideas-into-clear-action-plans-with-ai/"
 draft: false
 ogImage: "/og/default-blog.jpg"
 ---
@@ -85,7 +85,7 @@ The reason this method works — with or without AI — is that it separates thi
 
 AI thinking tools, used well, create a cheap, fast version of that clarification loop. You invest 20 minutes structuring your idea and come out with a real plan instead of a direction. That's not a small thing when the alternative is three weeks of ambiguous effort.
 
-For more on how [AI is changing the way entrepreneurs approach decisions](https://blog.fuyouai.com/blog/why-ai-thinking-tools-are-changing-how-entrepreneurs-work/), see our earlier piece on the practical shifts happening in how founders work.
+For more on how [AI is changing the way entrepreneurs approach decisions](https://fuyouai.com/blog/why-ai-thinking-tools-are-changing-how-entrepreneurs-work/), see our earlier piece on the practical shifts happening in how founders work.
 
 ## FAQ
 

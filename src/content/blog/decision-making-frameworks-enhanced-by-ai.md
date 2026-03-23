@@ -6,7 +6,7 @@ author: "FuyouAI"
 category: "Decision Making"
 tags: ["decision-making", "frameworks", "AI tools", "critical thinking"]
 targetKeyword: "decision-making frameworks AI"
-canonicalURL: "https://blog.fuyouai.com/blog/decision-making-frameworks-enhanced-by-ai/"
+canonicalURL: "https://fuyouai.com/blog/decision-making-frameworks-enhanced-by-ai/"
 draft: false
 ogImage: "/og/default-blog.jpg"
 ---

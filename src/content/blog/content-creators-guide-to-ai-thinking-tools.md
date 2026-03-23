@@ -6,7 +6,7 @@ author: "FuyouAI"
 category: "AI Productivity"
 tags: ["content creation", "AI tools", "strategy", "writing"]
 targetKeyword: "AI thinking tools for content creators"
-canonicalURL: "https://blog.fuyouai.com/blog/content-creators-guide-to-ai-thinking-tools/"
+canonicalURL: "https://fuyouai.com/blog/content-creators-guide-to-ai-thinking-tools/"
 draft: false
 ogImage: "/og/default-blog.jpg"
 ---

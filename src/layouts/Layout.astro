@@ -26,8 +26,8 @@ const {
   jsonLd,
 } = Astro.props;
 
-const siteURL = 'https://blog.fuyouai.com';
-const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteURL}${ogImage}`;
+const siteURL = 'https://fuyouai.com';
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteURL}/blog${ogImage}`;
 const fullCanonical = canonicalURL.startsWith('http') ? canonicalURL : `${siteURL}${canonicalURL}`;
 ---
 

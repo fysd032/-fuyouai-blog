@@ -6,7 +6,7 @@ author: "FuyouAI"
 category: "AI Productivity"
 tags: ["AI tools", "entrepreneurship", "decision-making", "productivity"]
 targetKeyword: "AI thinking tools for entrepreneurs"
-canonicalURL: "https://blog.fuyouai.com/blog/why-ai-thinking-tools-are-changing-how-entrepreneurs-work/"
+canonicalURL: "https://fuyouai.com/blog/why-ai-thinking-tools-are-changing-how-entrepreneurs-work/"
 draft: false
 ogImage: "/og/default-blog.jpg"
 ---
@@ -57,7 +57,7 @@ What's changing isn't that AI is making decisions for entrepreneurs. It's that t
 
 That's a meaningful change. Not in what founders decide, but in how clearly they can see what they're deciding about.
 
-For tools like this to deliver on that promise, they have to be built around the structure of thinking — not just the mechanics of conversation. That's why [purpose-built AI thinking tools](https://blog.fuyouai.com/blog/how-to-turn-vague-ideas-into-clear-action-plans-with-ai/) are a category worth paying attention to, separate from general AI assistants.
+For tools like this to deliver on that promise, they have to be built around the structure of thinking — not just the mechanics of conversation. That's why [purpose-built AI thinking tools](https://fuyouai.com/blog/how-to-turn-vague-ideas-into-clear-action-plans-with-ai/) are a category worth paying attention to, separate from general AI assistants.
 
 ## FAQ
 

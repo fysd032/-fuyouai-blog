@@ -6,7 +6,7 @@ author: "FuyouAI"
 category: "AI Productivity"
 tags: ["idea to action", "organize thoughts", "think clearly", "productivity", "planning"]
 targetKeyword: "I have an idea but don't know what to do"
-canonicalURL: "https://blog.fuyouai.com/blog/i-have-an-idea-but-dont-know-what-to-do/"
+canonicalURL: "https://fuyouai.com/blog/i-have-an-idea-but-dont-know-what-to-do/"
 draft: false
 ogImage: "/og/default-blog.jpg"
 ---
@@ -67,7 +67,7 @@ Not too big. Not too crazy. Not too early. Just not clear.
 
 The paralysis goes away the moment you turn ideas into a plan — even a rough one with obvious gaps. Because you stop staring at a fog and start looking at a map. The map might be wrong. That's fine. A wrong map is still more useful than no map.
 
-This is the same insight behind the method covered in [how to turn vague ideas into clear action plans with AI](https://blog.fuyouai.com/blog/how-to-turn-vague-ideas-into-clear-action-plans-with-ai/) — the issue is rarely execution, it's upstream of that. It's clarity.
+This is the same insight behind the method covered in [how to turn vague ideas into clear action plans with AI](https://fuyouai.com/blog/how-to-turn-vague-ideas-into-clear-action-plans-with-ai/) — the issue is rarely execution, it's upstream of that. It's clarity.
 
 ## How AI Can Speed This Up
 
@@ -77,7 +77,7 @@ I started using [FuyouAI](https://fuyouai.com) when my ideas were at their messi
 
 That's not magic. That's just what good structure does. It compresses hours of mental spinning into a focused 20-minute session. And it's especially useful for the second step — surfacing assumptions — because that's the hardest part to do alone.
 
-If you're serious about learning to think clearly about ideas, it's worth building a consistent habit around this process. [How entrepreneurs are using AI thinking tools](https://blog.fuyouai.com/blog/why-ai-thinking-tools-are-changing-how-entrepreneurs-work/) covers why this is becoming a real edge for people who do it regularly.
+If you're serious about learning to think clearly about ideas, it's worth building a consistent habit around this process. [How entrepreneurs are using AI thinking tools](https://fuyouai.com/blog/why-ai-thinking-tools-are-changing-how-entrepreneurs-work/) covers why this is becoming a real edge for people who do it regularly.
 
 ## FAQ
 

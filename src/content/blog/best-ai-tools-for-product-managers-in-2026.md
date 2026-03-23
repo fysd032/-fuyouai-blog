@@ -6,7 +6,7 @@ author: "FuyouAI"
 category: "AI Productivity"
 tags: ["product management", "AI tools", "roadmap", "prioritization"]
 targetKeyword: "best AI tools for product managers"
-canonicalURL: "https://blog.fuyouai.com/blog/best-ai-tools-for-product-managers-in-2026/"
+canonicalURL: "https://fuyouai.com/blog/best-ai-tools-for-product-managers-in-2026/"
 draft: false
 ogImage: "/og/default-blog.jpg"
 ---
@@ -78,7 +78,7 @@ The honest answer: prioritization requires human judgment about strategic contex
 - Pressure-testing your existing priorities ("What's the strongest argument against prioritizing X first?")
 - Identifying considerations you've left off the scoring sheet
 
-Tools that specifically help structure the prioritization conversation — rather than just automating a scoring matrix — add more value here. [FuyouAI's approach to decision structuring](https://blog.fuyouai.com/blog/decision-making-frameworks-enhanced-by-ai/) applies directly to this problem.
+Tools that specifically help structure the prioritization conversation — rather than just automating a scoring matrix — add more value here. [FuyouAI's approach to decision structuring](https://fuyouai.com/blog/decision-making-frameworks-enhanced-by-ai/) applies directly to this problem.
 
 **Best for:** Stress-testing your prioritization logic, not replacing it.
 

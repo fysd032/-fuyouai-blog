@@ -6,7 +6,7 @@ author: "FuyouAI"
 category: "AI Productivity"
 tags: ["brainstorming", "AI tools", "creativity", "idea generation"]
 targetKeyword: "AI brainstorming tools"
-canonicalURL: "https://blog.fuyouai.com/blog/ai-brainstorming-tools-compared/"
+canonicalURL: "https://fuyouai.com/blog/ai-brainstorming-tools-compared/"
 draft: false
 ogImage: "/og/default-blog.jpg"
 ---

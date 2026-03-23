@@ -6,7 +6,7 @@ author: "FuyouAI"
 category: "AI Productivity"
 tags: ["startup", "founder", "AI tools", "productivity", "2025"]
 targetKeyword: "AI tools startup founders 2025"
-canonicalURL: "https://blog.fuyouai.com/blog/top-ai-tools-for-startup-founders-2025/"
+canonicalURL: "https://fuyouai.com/blog/top-ai-tools-for-startup-founders-2025/"
 draft: false
 ogImage: "/og/default-blog.jpg"
 ---
