@@ -1,7 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import BlogCard from '../components/BlogCard.astro';
-import CTA from '../components/CTA.astro';
+import Layout from '../../layouts/Layout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import CTA from '../../components/CTA.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
