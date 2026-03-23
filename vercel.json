@@ -2,5 +2,11 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
-  "framework": "astro"
+  "framework": "astro",
+  "rewrites": [
+    { "source": "/blog/sitemap-index.xml", "destination": "/sitemap-index.xml" },
+    { "source": "/blog/sitemap-0.xml", "destination": "/sitemap-0.xml" },
+    { "source": "/blog/robots.txt", "destination": "/robots.txt" },
+    { "source": "/blog/rss.xml", "destination": "/blog/rss.xml" }
+  ]
 }
