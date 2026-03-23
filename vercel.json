@@ -2,8 +2,5 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
-  "framework": "astro",
-  "redirects": [
-    { "source": "/", "destination": "/blog/", "statusCode": 301 }
-  ]
+  "framework": "astro"
 }
